@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fórmula Viva | Farmácia de Manipulação</title>
+<meta name="description" content="Fórmula Viva — farmácia de manipulação com farmacêutico responsável, controle de qualidade e matérias-primas certificadas. Envie sua receita e receba em casa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ============ SVG ICON SPRITE ============ -->
+<svg style="display:none">
+<defs>
+
+<symbol id="icon-pill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="10.5" width="18" height="7" rx="3.5" transform="rotate(-35 12 14)"/>
+  <line x1="10.2" y1="9.4" x2="13.8" y2="18.6"/>
+</symbol>
+
+<symbol id="icon-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M9 3h6"/>
+  <path d="M10 3v6l-5.5 9.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3L14 9V3"/>
+  <path d="M7.5 15.5h9"/>
+</symbol>
+
+<symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/>
+  <path d="M8.5 12.2l2.3 2.3 4.2-4.6"/>
+</symbol>
+
+<symbol id="icon-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2.5" y="7" width="11" height="9"/>
+  <path d="M13.5 10h4l3 3v3h-7z"/>
+  <circle cx="7" cy="18" r="1.8"/>
+  <circle cx="17" cy="18" r="1.8"/>
+</symbol>
+
+<symbol id="icon-microscope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M9 20h8"/>
+  <path d="M11 20a6 6 0 1 1 5-9.3"/>
+  <path d="M10 9.5L14 5.5l1.5 1.5L11.5 11"/>
+  <path d="M13 7l3 3"/>
+  <circle cx="17.5" cy="14.5" r="0.2"/>
+</symbol>
+
+<symbol id="icon-droplet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>
+</symbol>
+
+<symbol id="icon-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 20c8 0 14-5 15-16-11 1-16 7-16 15z"/>
+  <path d="M6 18c3.5-3.5 6.5-6.5 12-11"/>
+</symbol>
+
+<symbol id="icon-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="5" y="4.5" width="14" height="16" rx="2"/>
+  <rect x="9" y="3" width="6" height="3" rx="1"/>
+  <line x1="8" y1="11" x2="16" y2="11"/>
+  <line x1="8" y1="14.5" x2="16" y2="14.5"/>
+  <line x1="8" y1="18" x2="13" y2="18"/>
+</symbol>
+
+<symbol id="icon-paw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <ellipse cx="12" cy="16" rx="5" ry="4"/>
+  <ellipse cx="5.5" cy="9" rx="1.8" ry="2.2"/>
+  <ellipse cx="10" cy="6.2" rx="1.8" ry="2.2"/>
+  <ellipse cx="14.5" cy="6.2" rx="1.8" ry="2.2"/>
+  <ellipse cx="18.5" cy="9" rx="1.8" ry="2.2"/>
+</symbol>
+
+<symbol id="icon-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="12" y1="3" x2="12" y2="21"/>
+  <line x1="5" y1="7" x2="19" y2="7"/>
+  <path d="M5 7l-3 6a3 3 0 0 0 6 0z"/>
+  <path d="M19 7l-3 6a3 3 0 0 0 6 0z"/>
+  <line x1="8.5" y1="21" x2="15.5" y2="21"/>
+</symbol>
+
+<symbol id="icon-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M7 17.5A4.5 4.5 0 0 1 8 8.6a5.5 5.5 0 0 1 10.7 1.7A4 4 0 0 1 18 18"/>
+  <path d="M12 20v-8"/>
+  <path d="M9 14.5L12 11.5 15 14.5"/>
+</symbol>
+
+<symbol id="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="9"/>
+  <path d="M8 12.2l2.6 2.6L16.2 9"/>
+</symbol>
+
+<symbol id="icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M21 3L10.5 13.5"/>
+  <path d="M21 3l-6.5 18-4-8-8-4z"/>
+</symbol>
+
+<symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M6 3h3l1.5 4.5-2 1.5a11 11 0 0 0 6.5 6.5l1.5-2L21 15v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4 5.2 2 2 0 0 1 6 3z"/>
+</symbol>
+
+<symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="5" width="18" height="14" rx="2"/>
+  <path d="M3.5 6.5l8.5 6 8.5-6"/>
+</symbol>
+
+<symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/>
+  <circle cx="12" cy="9" r="2.3"/>
+</symbol>
+
+<symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="9"/>
+  <path d="M12 7v5l3.5 2"/>
+</symbol>
+
+<symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="8" r="3.6"/>
+  <path d="M4.5 20c1.2-4 4-6 7.5-6s6.3 2 7.5 6"/>
+</symbol>
+
+<symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="9" r="5.5"/>
+  <path d="M8.5 13.5L7 21l5-2.5 5 2.5-1.5-7.5"/>
+</symbol>
+
+<symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
+</symbol>
+
+<symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/>
+</symbol>
+
+<symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="4" y1="12" x2="19" y2="12"/><path d="M13 6l6 6-6 6"/>
+</symbol>
+
+<symbol id="icon-scissors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="6" cy="6.5" r="2.3"/>
+  <circle cx="6" cy="17.5" r="2.3"/>
+  <line x1="20" y1="4" x2="8" y2="14"/>
+  <line x1="8" y1="10" x2="20" y2="20"/>
+</symbol>
+
+<symbol id="icon-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 20s-7.5-4.7-9.7-9.4C.7 6.8 3 3.5 6.5 3.5c2 0 3.3 1 5.5 3.4 2.2-2.4 3.5-3.4 5.5-3.4 3.5 0 5.8 3.3 4.2 7.1C19.5 15.3 12 20 12 20z"/>
+  <path d="M4 12h3l1.5-3L11 15l1.8-4.5L14 12h6"/>
+</symbol>
+
+<symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="3" width="18" height="18" rx="5"/>
+  <circle cx="12" cy="12" r="4"/>
+  <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/>
+</symbol>
+
+<symbol id="icon-facebook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M15 4h-2.2C10.7 4 9.5 5.4 9.5 7.6V10H7v3.2h2.5V21h3.3v-7.8h2.6l.4-3.2h-3v-2c0-.9.3-1.5 1.6-1.5H15V4z" fill="currentColor" stroke="none"/>
+</symbol>
+
+<symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+  <path d="M12 2.5A9.5 9.5 0 0 0 3.6 17L2.5 21.5l4.6-1.2A9.5 9.5 0 1 0 12 2.5zm5.5 13.4c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-3.3-.9-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.3-.3.6-.3.8-.3h.6c.2 0 .5 0 .7.5.3.6.9 2 1 2.1.1.2.1.4 0 .6-.5 1-1 .9-.5 1.7.7 1.2 1.5 1.7 2.6 2.3.2.1.4.1.5-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.6.8 1.9 1 .3.1.5.2.5.3.1.2.1.6-.1 1.1z"/>
+</symbol>
+
+</defs>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="#home" class="logo" data-nav="home">
+      <span class="logo-mark"><svg width="22" height="22"><use href="#icon-flask"/></svg></span>
+      <span class="logo-text">FÓRMULA <strong>VIVA</strong></span>
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="#home" data-nav="home" class="nav-link is-active">Início</a>
+      <a href="#sobre" data-nav="sobre" class="nav-link">Sobre</a>
+      <a href="#laboratorio" data-nav="laboratorio" class="nav-link">Laboratório</a>
+      <a href="#servicos" data-nav="servicos" class="nav-link">Serviços/Ativos</a>
+      <a href="#receita" data-nav="receita" class="nav-link">Envie sua Receita</a>
+      <a href="#contato" data-nav="contato" class="nav-link">Contato</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="btn btn-whatsapp">
+        <svg width="18" height="18"><use href="#icon-whatsapp"/></svg>
+        WhatsApp
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
+        <svg width="26" height="26"><use href="#icon-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ============================================================ -->
+<!-- ============ PAGE: HOME ============ -->
+<!-- ============================================================ -->
+<section class="page is-active" id="page-home" data-page="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-blob blob-1"></div>
+      <div class="hero-blob blob-2"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow"><svg width="16" height="16"><use href="#icon-shield"/></svg> Farmácia de manipulação com responsabilidade técnica</span>
+        <h1>Cuidado farmacêutico personalizado, com a ciência e a tradição que a sua saúde merece</h1>
+        <p class="hero-sub">Manipulamos cada fórmula com rigor técnico, farmacêutico responsável presente e matérias-primas certificadas — do dermocosmético ao medicamento de uso contínuo.</p>
+        <div class="hero-cta">
+          <a href="#receita" data-nav="receita" class="btn btn-primary btn-lg">
+            Envie sua receita
+            <svg width="18" height="18"><use href="#icon-arrow-right"/></svg>
+          </a>
+          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">
+            <svg width="18" height="18"><use href="#icon-whatsapp"/></svg>
+            Fale com a farmácia
+          </a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><svg width="18" height="18"><use href="#icon-award"/></svg> Farmacêutico responsável CRF ativo</div>
+          <div class="trust-item"><svg width="18" height="18"><use href="#icon-check-circle"/></svg> Boas Práticas de Manipulação</div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-card card-lab">
+          <svg width="34" height="34"><use href="#icon-flask"/></svg>
+          <span>Manipulação em fluxo controlado</span>
+        </div>
+        <div class="hero-card card-quality">
+          <svg width="34" height="34"><use href="#icon-microscope"/></svg>
+          <span>Controle de qualidade em 3 etapas</span>
+        </div>
+        <div class="hero-glass"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="section" id="diferenciais">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Por que a Fórmula Viva</span>
+        <h2>Segurança e precisão em cada etapa</h2>
+        <p>Da conferência da receita à entrega, cada fórmula passa por processos pensados para garantir eficácia e segurança.</p>
+      </div>
+      <div class="grid grid-4">
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg width="28" height="28"><use href="#icon-user"/></svg></div>
+          <h3>Farmacêutico Responsável</h3>
+          <p>Acompanhamento técnico em todas as etapas da manipulação, com validação farmacêutica de cada fórmula.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg width="28" height="28"><use href="#icon-shield"/></svg></div>
+          <h3>Controle de Qualidade</h3>
+          <p>Testes de identidade, pureza e concentração em matérias-primas e produtos acabados.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg width="28" height="28"><use href="#icon-award"/></svg></div>
+          <h3>Matérias-Primas Certificadas</h3>
+          <p>Fornecedores auditados e insumos com laudo de análise para garantir a procedência de cada ativo.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg width="28" height="28"><use href="#icon-truck"/></svg></div>
+          <h3>Entrega Facilitada</h3>
+          <p>Retire na farmácia ou receba em casa, com embalagem adequada para preservar a fórmula.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSSO LABORATÓRIO -->
+  <section class="section section-alt" id="lab-preview">
+    <div class="container split-block">
+      <div class="split-visual reveal">
+        <div class="photo-frame ph-1"><svg width="40" height="40"><use href="#icon-microscope"/></svg></div>
+        <div class="photo-frame ph-2"><svg width="32" height="32"><use href="#icon-flask"/></svg></div>
+        <div class="photo-frame ph-3"><svg width="32" height="32"><use href="#icon-shield"/></svg></div>
+      </div>
+      <div class="split-copy reveal">
+        <span class="tag">Nosso laboratório</span>
+        <h2>Estrutura própria, equipamentos calibrados, processo rastreável</h2>
+        <p>Nosso laboratório opera em salas segregadas por tipo de manipulação — sólidos, líquidos, semissólidos e formas estéreis — com equipamentos calibrados periodicamente e fluxo de trabalho que evita contaminação cruzada.</p>
+        <ul class="check-list">
+          <li><svg width="18" height="18"><use href="#icon-check-circle"/></svg> Balanças analíticas de precisão certificada</li>
+          <li><svg width="18" height="18"><use href="#icon-check-circle"/></svg> Cápsulas encapsuladas em ambiente controlado</li>
+          <li><svg width="18" height="18"><use href="#icon-check-circle"/></svg> Rastreabilidade de lote em todas as fórmulas</li>
+        </ul>
+        <a href="#laboratorio" data-nav="laboratorio" class="link-arrow">Conheça o laboratório <svg width="16" height="16"><use href="#icon-arrow-right"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIAS -->
+  <section class="section" id="categorias">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">O que manipulamos</span>
+        <h2>Categorias de ativos e serviços</h2>
+        <p>Fórmulas para todas as fases da vida — do cuidado estético ao tratamento contínuo.</p>
+      </div>
+      <div class="grid grid-6 cat-grid">
+        <a href="#servicos" data-nav="servicos" class="cat-card reveal">
+          <svg width="30" height="30"><use href="#icon-droplet"/></svg>
+          <span>Dermocosméticos</span>
+        </a>
+        <a href="#servicos" data-nav="servicos" class="cat-card reveal">
+          <svg width="30" height="30"><use href="#icon-leaf"/></svg>
+          <span>Suplementos</span>
+        </a>
+        <a href="#servicos" data-nav="servicos" class="cat-card reveal">
+          <svg width="30" height="30"><use href="#icon-clipboard"/></svg>
+          <span>Fórmulas Médicas</span>
+        </a>
+        <a href="#servicos" data-nav="servicos" class="cat-card reveal">
+          <svg width="30" height="30"><use href="#icon-paw"/></svg>
+          <span>Veterinária</span>
+        </a>
+        <a href="#servicos" data-nav="servicos" class="cat-card reveal">
+          <svg width="30" height="30"><use href="#icon-scissors"/></svg>
+          <span>Capilares</span>
+        </a>
+        <a href="#servicos" data-nav="servicos" class="cat-card reveal">
+          <svg width="30" height="30"><use href="#icon-scale"/></svg>
+          <span>Emagrecimento</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO ENVIAR RECEITA -->
+  <section class="section section-alt" id="como-funciona">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">É simples</span>
+        <h2>Como enviar sua receita</h2>
+      </div>
+      <div class="grid grid-3 steps">
+        <div class="step-card reveal">
+          <span class="step-num">1</span>
+          <div class="step-icon"><svg width="26" height="26"><use href="#icon-upload"/></svg></div>
+          <h3>Envie a receita</h3>
+          <p>Tire uma foto ou anexe o PDF da sua receita pelo formulário ou diretamente pelo WhatsApp.</p>
+        </div>
+        <div class="step-card reveal">
+          <span class="step-num">2</span>
+          <div class="step-icon"><svg width="26" height="26"><use href="#icon-clipboard"/></svg></div>
+          <h3>Receba o orçamento</h3>
+          <p>Nossa equipe analisa a fórmula e envia o orçamento e o prazo de manipulação.</p>
+        </div>
+        <div class="step-card reveal">
+          <span class="step-num">3</span>
+          <div class="step-icon"><svg width="26" height="26"><use href="#icon-truck"/></svg></div>
+          <h3>Retire ou receba em casa</h3>
+          <p>Após a confirmação, é só retirar na farmácia ou receber no conforto da sua casa.</p>
+        </div>
+      </div>
+      <div class="center-cta">
+        <a href="#receita" data-nav="receita" class="btn btn-primary btn-lg">Enviar minha receita agora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-band">
+    <div class="container cta-band-inner">
+      <div>
+        <h2>Ficou com alguma dúvida sobre sua fórmula?</h2>
+        <p>Fale agora com nossa equipe farmacêutica pelo WhatsApp e tire suas dúvidas sem compromisso.</p>
+      </div>
+      <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="btn btn-white btn-lg">
+        <svg width="18" height="18"><use href="#icon-whatsapp"/></svg>
+        Conversar no WhatsApp
+      </a>
+    </div>
+  </section>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- ============ PAGE: SOBRE ============ -->
+<!-- ============================================================ -->
+<section class="page" id="page-sobre" data-page="sobre">
+  <section class="page-hero">
+    <div class="container">
+      <span class="tag">Sobre a Fórmula Viva</span>
+      <h1>Tradição farmacêutica, olhar contemporâneo</h1>
+      <p>Há mais de uma década cuidando da saúde com fórmulas feitas sob medida para cada paciente.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-block">
+      <div class="split-copy reveal">
+        <span class="tag">Nossa história</span>
+        <h2>Nascemos para personalizar o cuidado</h2>
+        <p>A Fórmula Viva nasceu da vontade de oferecer um cuidado farmacêutico mais próximo, técnico e humano. Começamos como uma pequena farmácia de bairro e, com o tempo, construímos uma estrutura completa de manipulação — sem nunca perder o essencial: a atenção individual a cada paciente e a cada prescrição.</p>
+        <p>Hoje atendemos pacientes de diversas especialidades médicas, veterinários e pessoas em busca de cuidado estético e nutricional, sempre com o mesmo compromisso: qualidade técnica comprovável, do primeiro atendimento à entrega da fórmula.</p>
+      </div>
+      <div class="split-visual reveal">
+        <div class="photo-frame ph-wide"><svg width="44" height="44"><use href="#icon-flask"/></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Missão &amp; valores</span>
+        <h2>O que guia nosso trabalho todos os dias</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg width="26" height="26"><use href="#icon-heart-pulse"/></svg></div>
+          <h3>Cuidado individual</h3>
+          <p>Cada fórmula é única porque cada paciente é único — tratamos assim, sem exceção.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg width="26" height="26"><use href="#icon-shield"/></svg></div>
+          <h3>Rigor técnico</h3>
+          <p>Seguimos boas práticas de manipulação e mantemos controle de qualidade constante.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg width="26" height="26"><use href="#icon-leaf"/></svg></div>
+          <h3>Transparência</h3>
+          <p>Informação clara sobre ativos, concentrações e prazos — sem letras miúdas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Farmacêutico responsável</span>
+        <h2>Quem assina cada fórmula</h2>
+      </div>
+      <div class="profile-card reveal">
+        <div class="profile-photo"><svg width="52" height="52"><use href="#icon-user"/></svg></div>
+        <div class="profile-info">
+          <h3>Dra. Camila Ferreira Andrade</h3>
+          <span class="profile-crf">CRF-SP 123.456</span>
+          <p>Farmacêutica formada pela Universidade de São Paulo, com especialização em Farmácia Magistral e mais de 12 anos de atuação em manipulação de fórmulas médicas, dermocosméticas e veterinárias. Responsável técnica pela Fórmula Viva desde a fundação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================================================ -->
+<!-- ============ PAGE: LABORATÓRIO ============ -->
+<!-- ============================================================ -->
+<section class="page" id="page-laboratorio" data-page="laboratorio">
+  <section class="page-hero">
+    <div class="container">
+      <span class="tag">Estrutura</span>
+      <h1>Nosso laboratório</h1>
+      <p>Equipamentos calibrados, ambientes segregados e processos rastreáveis — a base de toda fórmula segura.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Galeria</span>
+        <h2>Conheça nossos ambientes</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal g-tall"><svg width="36" height="36"><use href="#icon-flask"/></svg><span>Sala de manipulação de líquidos</span></div>
+        <div class="gallery-item reveal"><svg width="36" height="36"><use href="#icon-microscope"/></svg><span>Controle de qualidade</span></div>
+        <div class="gallery-item reveal"><svg width="36" height="36"><use href="#icon-pill"/></svg><span>Encapsuladora</span></div>
+        <div class="gallery-item reveal g-tall"><svg width="36" height="36"><use href="#icon-shield"/></svg><span>Área estéril</span></div>
+        <div class="gallery-item reveal"><svg width="36" height="36"><use href="#icon-scale"/></svg><span>Pesagem analítica</span></div>
+        <div class="gallery-item reveal"><svg width="36" height="36"><use href="#icon-droplet"/></svg><span>Manipulação de semissólidos</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container split-block">
+      <div class="split-copy reveal">
+        <span class="tag">Equipamentos</span>
+        <h2>Precisão em cada pesagem</h2>
+        <ul class="check-list">
+          <li><svg width="18" height="18"><use href="#icon-check-circle"/></svg> Balanças analíticas com calibração periódica certificada</li>
+          <li><svg width="18" height="18"><use href="#icon-check-circle"/></svg> Encapsuladoras automáticas de alta precisão</li>
+          <li><svg width="18" height="18"><use href="#icon-check-circle"/></svg> Câmaras climatizadas para armazenamento de insumos</li>
+          <li><svg width="18" height="18"><use href="#icon-check-circle"/></svg> Fluxo laminar para formas farmacêuticas estéreis</li>
+          <li><svg width="18" height="18"><use href="#icon-check-circle"/></svg> Sistema de rastreabilidade de lote ponta a ponta</li>
+        </ul>
+      </div>
+      <div class="split-visual reveal">
+        <div class="photo-frame ph-wide"><svg width="44" height="44"><use href="#icon-microscope"/></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Certificações</span>
+        <h2>Controle de qualidade em todas as etapas</h2>
+        <p>Da matéria-prima ao produto final, cada fórmula passa por verificações documentadas.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg width="26" height="26"><use href="#icon-award"/></svg></div>
+          <h3>Licença de Funcionamento</h3>
+          <p>Farmácia licenciada junto à Vigilância Sanitária e ao Conselho Regional de Farmácia.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg width="26" height="26"><use href="#icon-shield"/></svg></div>
+          <h3>Boas Práticas de Manipulação</h3>
+          <p>Processos alinhados às normas da RDC nº 67 da Anvisa para farmácias magistrais.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg width="26" height="26"><use href="#icon-microscope"/></svg></div>
+          <h3>Laudos de Análise</h3>
+          <p>Matérias-primas acompanhadas de laudo de identidade, pureza e concentração.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================================================ -->
+<!-- ============ PAGE: SERVIÇOS / ATIVOS ============ -->
+<!-- ============================================================ -->
+<section class="page" id="page-servicos" data-page="servicos">
+  <section class="page-hero">
+    <div class="container">
+      <span class="tag">Portfólio</span>
+      <h1>Serviços e ativos manipulados</h1>
+      <p>Um panorama do que produzimos — sua fórmula pode ser diferente da lista abaixo, é só nos consultar.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="service-category reveal">
+        <div class="service-cat-head">
+          <div class="feature-icon"><svg width="26" height="26"><use href="#icon-droplet"/></svg></div>
+          <h2>Dermocosméticos</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="service-item"><h4>Séruns faciais personalizados</h4><p>Ativos antioxidantes e clareadores em concentração sob medida para o seu tipo de pele.</p></div>
+          <div class="service-item"><h4>Protetores solares manipulados</h4><p>Formulações com textura e cor ajustadas às suas preferências.</p></div>
+          <div class="service-item"><h4>Cremes anti-idade</h4><p>Combinações de ativos firmadores e hidratantes de alta performance.</p></div>
+        </div>
+      </div>
+
+      <div class="service-category reveal">
+        <div class="service-cat-head">
+          <div class="feature-icon"><svg width="26" height="26"><use href="#icon-leaf"/></svg></div>
+          <h2>Suplementos</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="service-item"><h4>Vitaminas e minerais</h4><p>Cápsulas com dosagens individualizadas conforme prescrição.</p></div>
+          <div class="service-item"><h4>Fórmulas para performance</h4><p>Combinações para energia, recuperação muscular e foco.</p></div>
+          <div class="service-item"><h4>Probióticos manipulados</h4><p>Cepas selecionadas para saúde intestinal e imunidade.</p></div>
+        </div>
+      </div>
+
+      <div class="service-category reveal">
+        <div class="service-cat-head">
+          <div class="feature-icon"><svg width="26" height="26"><use href="#icon-clipboard"/></svg></div>
+          <h2>Fórmulas Médicas</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="service-item"><h4>Medicamentos de uso contínuo</h4><p>Manipulação de fórmulas prescritas para tratamentos crônicos.</p></div>
+          <div class="service-item"><h4>Hormônios bioidênticos</h4><p>Reposição hormonal sob prescrição e acompanhamento médico.</p></div>
+          <div class="service-item"><h4>Fórmulas pediátricas</h4><p>Apresentações e sabores adaptados para o público infantil.</p></div>
+        </div>
+      </div>
+
+      <div class="service-category reveal">
+        <div class="service-cat-head">
+          <div class="feature-icon"><svg width="26" height="26"><use href="#icon-paw"/></svg></div>
+          <h2>Veterinária</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="service-item"><h4>Medicamentos palatáveis</h4><p>Sabor de carne, frango ou peixe para facilitar a administração.</p></div>
+          <div class="service-item"><h4>Suplementos para pets</h4><p>Fórmulas para articulações, pele e pelagem.</p></div>
+          <div class="service-item"><h4>Antiparasitários manipulados</h4><p>Dosagem ajustada ao peso e espécie do animal.</p></div>
+        </div>
+      </div>
+
+      <div class="service-category reveal">
+        <div class="service-cat-head">
+          <div class="feature-icon"><svg width="26" height="26"><use href="#icon-scissors"/></svg></div>
+          <h2>Capilares</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="service-item"><h4>Loções anticaída</h4><p>Ativos estimulantes de crescimento capilar sob medida.</p></div>
+          <div class="service-item"><h4>Shampoos e tônicos</h4><p>Formulações para caspa, oleosidade e fortalecimento.</p></div>
+          <div class="service-item"><h4>Finasterida e minoxidil</h4><p>Fórmulas capilares de uso tópico ou oral sob prescrição.</p></div>
+        </div>
+      </div>
+
+      <div class="service-category reveal">
+        <div class="service-cat-head">
+          <div class="feature-icon"><svg width="26" height="26"><use href="#icon-scale"/></svg></div>
+          <h2>Emagrecimento</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="service-item"><h4>Fórmulas termogênicas</h4><p>Combinações para apoio ao metabolismo, sob avaliação médica.</p></div>
+          <div class="service-item"><h4>Moduladores de apetite</h4><p>Fórmulas prescritas para controle da fome.</p></div>
+          <div class="service-item"><h4>Saciantes naturais</h4><p>Fibras e ativos vegetais para apoio ao processo alimentar.</p></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container cta-band-inner">
+      <div>
+        <h2>Não encontrou o que precisa?</h2>
+        <p>Envie sua receita e nossa equipe farmacêutica avalia a formulação ideal para o seu caso.</p>
+      </div>
+      <a href="#receita" data-nav="receita" class="btn btn-white btn-lg">Enviar receita</a>
+    </div>
+  </section>
+</section>
+
+<!-- ============================================================ -->
+<!-- ============ PAGE: ENVIE SUA RECEITA ============ -->
+<!-- ============================================================ -->
+<section class="page" id="page-receita" data-page="receita">
+  <section class="page-hero">
+    <div class="container">
+      <span class="tag">Rápido e seguro</span>
+      <h1>Envie sua receita</h1>
+      <p>Anexe a foto ou o PDF da receita e receba seu orçamento sem sair de casa.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container form-layout">
+
+      <form class="form-card reveal" id="form-receita" novalidate>
+        <h2>Formulário de envio</h2>
+        <p class="form-hint">Preencha seus dados e anexe a receita. Nossa equipe entra em contato com o orçamento em até 2 horas úteis.</p>
+
+        <div class="upload-zone" id="upload-zone">
+          <svg width="34" height="34"><use href="#icon-upload"/></svg>
+          <p><strong>Arraste a receita aqui</strong> ou clique para selecionar</p>
+          <span class="upload-hint">JPG, PNG ou PDF · até 10MB</span>
+          <input type="file" id="file-receita" accept=".jpg,.jpeg,.png,.pdf" hidden>
+        </div>
+        <ul class="file-list" id="file-list"></ul>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="r-nome">Nome completo</label>
+            <input type="text" id="r-nome" name="nome" required placeholder="Seu nome">
+          </div>
+          <div class="form-field">
+            <label for="r-telefone">Telefone / WhatsApp</label>
+            <input type="tel" id="r-telefone" name="telefone" required placeholder="(11) 90000-0000">
+          </div>
+          <div class="form-field form-field-wide">
+            <label for="r-email">E-mail</label>
+            <input type="email" id="r-email" name="email" required placeholder="voce@email.com">
+          </div>
+          <div class="form-field form-field-wide">
+            <label for="r-obs">Observações</label>
+            <textarea id="r-obs" name="observacoes" rows="4" placeholder="Alguma informação adicional sobre a receita ou preferência de entrega?"></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-lg">
+            <svg width="18" height="18"><use href="#icon-send"/></svg>
+            Enviar receita
+          </button>
+          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">
+            <svg width="18" height="18"><use href="#icon-whatsapp"/></svg>
+            Enviar pelo WhatsApp
+          </a>
+        </div>
+
+        <div class="form-success" id="form-success">
+          <svg width="40" height="40"><use href="#icon-check-circle"/></svg>
+          <h3>Receita enviada com sucesso!</h3>
+          <p>Recebemos sua solicitação. Nossa equipe entrará em contato em breve com o orçamento.</p>
+        </div>
+      </form>
+
+      <aside class="form-aside reveal">
+        <div class="aside-card">
+          <h3>Precisa de ajuda?</h3>
+          <p>Fale diretamente com nossa equipe pelo WhatsApp — é o jeito mais rápido de enviar sua receita.</p>
+          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%">
+            <svg width="18" height="18"><use href="#icon-whatsapp"/></svg> Chamar no WhatsApp
+          </a>
+        </div>
+        <div class="aside-card">
+          <h3>O que acontece depois?</h3>
+          <ul class="check-list">
+            <li><svg width="18" height="18"><use href="#icon-check-circle"/></svg> Conferência farmacêutica da receita</li>
+            <li><svg width="18" height="18"><use href="#icon-check-circle"/></svg> Envio do orçamento por WhatsApp ou e-mail</li>
+            <li><svg width="18" height="18"><use href="#icon-check-circle"/></svg> Manipulação após confirmação</li>
+            <li><svg width="18" height="18"><use href="#icon-check-circle"/></svg> Retirada ou entrega em casa</li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</section>
+
+<!-- ============================================================ -->
+<!-- ============ PAGE: CONTATO ============ -->
+<!-- ============================================================ -->
+<section class="page" id="page-contato" data-page="contato">
+  <section class="page-hero">
+    <div class="container">
+      <span class="tag">Fale conosco</span>
+      <h1>Contato</h1>
+      <p>Estamos à disposição para dúvidas sobre fórmulas, orçamentos e prazos.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container form-layout">
+
+      <form class="form-card reveal" id="form-contato" novalidate>
+        <h2>Envie uma mensagem</h2>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="c-nome">Nome completo</label>
+            <input type="text" id="c-nome" name="nome" required placeholder="Seu nome">
+          </div>
+          <div class="form-field">
+            <label for="c-telefone">Telefone</label>
+            <input type="tel" id="c-telefone" name="telefone" required placeholder="(11) 90000-0000">
+          </div>
+          <div class="form-field form-field-wide">
+            <label for="c-email">E-mail</label>
+            <input type="email" id="c-email" name="email" required placeholder="voce@email.com">
+          </div>
+          <div class="form-field form-field-wide">
+            <label for="c-assunto">Assunto</label>
+            <select id="c-assunto" name="assunto">
+              <option>Dúvida sobre fórmula</option>
+              <option>Orçamento</option>
+              <option>Prazo de entrega</option>
+              <option>Outro assunto</option>
+            </select>
+          </div>
+          <div class="form-field form-field-wide">
+            <label for="c-mensagem">Mensagem</label>
+            <textarea id="c-mensagem" name="mensagem" rows="5" required placeholder="Como podemos ajudar?"></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-lg">
+            <svg width="18" height="18"><use href="#icon-send"/></svg>
+            Enviar mensagem
+          </button>
+        </div>
+        <div class="form-success" id="form-success-contato">
+          <svg width="40" height="40"><use href="#icon-check-circle"/></svg>
+          <h3>Mensagem enviada!</h3>
+          <p>Obrigado pelo contato. Responderemos em breve.</p>
+        </div>
+      </form>
+
+      <aside class="form-aside reveal">
+        <div class="aside-card">
+          <h3>Informações</h3>
+          <ul class="contact-list">
+            <li><svg width="18" height="18"><use href="#icon-map-pin"/></svg> Av. das Nações, 1250 — Jardim Botânico, São Paulo/SP</li>
+            <li><svg width="18" height="18"><use href="#icon-phone"/></svg> (11) 3456-7890</li>
+            <li><svg width="18" height="18"><use href="#icon-whatsapp"/></svg> (11) 99999-9999</li>
+            <li><svg width="18" height="18"><use href="#icon-mail"/></svg> contato@formulaviva.com.br</li>
+          </ul>
+        </div>
+        <div class="aside-card">
+          <h3><svg width="18" height="18"><use href="#icon-clock"/></svg> Horário de funcionamento</h3>
+          <ul class="hours-list">
+            <li><span>Segunda a sexta</span><span>8h às 19h</span></li>
+            <li><span>Sábado</span><span>8h às 13h</span></li>
+            <li><span>Domingo</span><span>Fechado</span></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <div class="container">
+      <div class="map-placeholder reveal">
+        <svg width="40" height="40"><use href="#icon-map-pin"/></svg>
+        <span>Av. das Nações, 1250 — Jardim Botânico, São Paulo/SP</span>
+      </div>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#home" data-nav="home" class="logo logo-footer">
+        <span class="logo-mark"><svg width="20" height="20"><use href="#icon-flask"/></svg></span>
+        <span class="logo-text">FÓRMULA <strong>VIVA</strong></span>
+      </a>
+      <p>Farmácia de manipulação com farmacêutico responsável, controle de qualidade e matérias-primas certificadas.</p>
+      <div class="social-links">
+        <a href="#" aria-label="Instagram"><svg width="18" height="18"><use href="#icon-instagram"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg width="18" height="18"><use href="#icon-facebook"/></svg></a>
+        <a href="https://wa.me/5511999999999" aria-label="WhatsApp"><svg width="18" height="18"><use href="#icon-whatsapp"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <a href="#home" data-nav="home">Início</a>
+      <a href="#sobre" data-nav="sobre">Sobre</a>
+      <a href="#laboratorio" data-nav="laboratorio">Laboratório</a>
+      <a href="#servicos" data-nav="servicos">Serviços/Ativos</a>
+      <a href="#receita" data-nav="receita">Envie sua Receita</a>
+      <a href="#contato" data-nav="contato">Contato</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <span>Av. das Nações, 1250 — São Paulo/SP</span>
+      <span>(11) 3456-7890</span>
+      <span>contato@formulaviva.com.br</span>
+    </div>
+
+    <div class="footer-col">
+      <h4>Horário</h4>
+      <span>Seg a sex: 8h às 19h</span>
+      <span>Sábado: 8h às 13h</span>
+      <span>Domingo: fechado</span>
+    </div>
+  </div>
+
+  <div class="footer-legal">
+    <div class="container footer-legal-inner">
+      <p>© 2026 Fórmula Viva Farmácia de Manipulação Ltda. Todos os direitos reservados.</p>
+      <p>Responsável Técnica: Dra. Camila Ferreira Andrade — CRF-SP 123.456 · Farmácia fictícia, peça de portfólio.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Fale conosco no WhatsApp">
+  <svg width="28" height="28"><use href="#icon-whatsapp"/></svg>
+</a>
+
+<script src="js/script.js"></script>
+</body>
+</html>

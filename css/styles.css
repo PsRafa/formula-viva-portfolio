@@ -296,9 +296,11 @@ h3 { font-size: 1.15rem; }
   background: linear-gradient(150deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   border-radius: var(--radius-lg);
   opacity: 0.9;
+  z-index: 0;
 }
 .hero-card {
   position: absolute;
+  z-index: 1;
   display: flex; flex-direction: column; gap: 12px;
   background: #fff;
   padding: 20px;
@@ -702,11 +704,6 @@ h3 { font-size: 1.15rem; }
   50% { box-shadow: 0 10px 26px rgba(31,174,116,.45), 0 0 0 12px rgba(31,174,116,0); }
 }
 
-/* ===========================================================
-   SCROLL REVEAL
-=========================================================== */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
-.reveal.is-visible { opacity: 1; transform: none; }
 
 /* ===========================================================
    RESPONSIVE

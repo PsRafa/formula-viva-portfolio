@@ -5,6 +5,12 @@
   var pages = document.querySelectorAll(".page");
   var navLinks = document.querySelectorAll("[data-nav]");
   var mainContent = document.getElementById("main-content");
+  var navToggle = document.getElementById("nav-toggle");
+  var mainNav = document.getElementById("main-nav");
+
+  function closeMobileNav() {
+    mainNav.classList.remove("is-open");
+  }
 
   function showPage(name, opts) {
     var found = false;
@@ -30,7 +36,6 @@
       window.scrollTo({ top: 0, behavior: "auto" });
     }
     closeMobileNav();
-    initReveal();
   }
 
   function pageTitle(name) {
@@ -74,35 +79,9 @@
   onScroll();
 
   /* ============ MOBILE NAV TOGGLE ============ */
-  var navToggle = document.getElementById("nav-toggle");
-  var mainNav = document.getElementById("main-nav");
-
-  function closeMobileNav() {
-    mainNav.classList.remove("is-open");
-  }
   navToggle.addEventListener("click", function () {
     mainNav.classList.toggle("is-open");
   });
-
-  /* ============ SCROLL REVEAL ANIMATION ============ */
-  var revealObserver = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
-
-  function initReveal() {
-    document.querySelectorAll(".reveal:not(.is-visible)").forEach(function (el) {
-      revealObserver.observe(el);
-    });
-  }
-  initReveal();
 
   /* ============ UPLOAD ZONE (Envie sua Receita) ============ */
   var uploadZone = document.getElementById("upload-zone");
